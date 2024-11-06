@@ -1,0 +1,135 @@
+[gd_scene load_steps=16 format=3 uid="uid://bxtda64u10fnu"]
+
+[ext_resource type="PackedScene" uid="uid://b40bxlnru21m7" path="res://scenes/player.tscn" id="1_35wfe"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_rensn"]
+[ext_resource type="Texture2D" uid="uid://wv7wrhyadhbd" path="res://2206_w019_n001_601a_p30_601.jpg" id="2_akxyp"]
+[ext_resource type="Texture2D" uid="uid://dcn4uuwujgph0" path="res://Screenshot_2024-09-19_173914-removebg-preview.png" id="4_jinxs"]
+[ext_resource type="Texture2D" uid="uid://cb6ilulrnqmvc" path="res://Screenshot_2024-09-19_173924-removebg-preview.png" id="5_6vgps"]
+[ext_resource type="Texture2D" uid="uid://c2htoj865ikm4" path="res://Screenshot_2024-09-19_173933-removebg-preview.png" id="6_vieoh"]
+[ext_resource type="Texture2D" uid="uid://dwur7s6c03jh6" path="res://Screenshot_2024-09-19_173944-removebg-preview.png" id="7_2kq7i"]
+[ext_resource type="Texture2D" uid="uid://dl6l14pb1wvts" path="res://Screenshot_2024-09-19_173953-removebg-preview.png" id="8_4mm17"]
+[ext_resource type="Texture2D" uid="uid://bov4nyujsw508" path="res://Screenshot_2024-09-19_174002-removebg-preview.png" id="9_3xljg"]
+[ext_resource type="Texture2D" uid="uid://bifq3kpycl433" path="res://Screenshot_2024-09-19_174016-removebg-preview.png" id="10_2hiqr"]
+[ext_resource type="PackedScene" uid="uid://d3wahl2f00lmv" path="res://scenes/ui.tscn" id="11_7x8jb"]
+[ext_resource type="AudioStream" uid="uid://c4s1cl4aqc6hn" path="res://area12-131883.mp3" id="12_5jvuw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrmtq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jinxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6vgps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vieoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2kq7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4mm17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3xljg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2hiqr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayeuc"]
+size = Vector2(72.5, 1472.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x23fe"]
+size = Vector2(2439.81, 95)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_rensn")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(910, 556)
+scale = Vector2(0.290857, 0.348476)
+texture = ExtResource("2_akxyp")
+metadata/_edit_lock_ = true
+
+[node name="Lines" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lines"]
+position = Vector2(24.5, 279)
+scale = Vector2(0.25658, 0.574277)
+sprite_frames = SubResource("SpriteFrames_mrmtq")
+autoplay = "default"
+frame = 6
+frame_progress = 0.289038
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Lines"]
+position = Vector2(941, 261.5)
+scale = Vector2(0.25658, 0.574277)
+sprite_frames = SubResource("SpriteFrames_mrmtq")
+autoplay = "default"
+frame = 6
+frame_progress = 0.289038
+
+[node name="Player" parent="." instance=ExtResource("1_35wfe")]
+position = Vector2(921, 578)
+
+[node name="Borders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-32.25, 711.75)
+shape = SubResource("RectangleShape2D_ayeuc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2(1214, 14)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(730, 372)
+shape = SubResource("RectangleShape2D_ayeuc")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(654, -40)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(48.0938, -2)
+shape = SubResource("RectangleShape2D_x23fe")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+position = Vector2(659, 694)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(351, 420)
+shape = SubResource("RectangleShape2D_x23fe")
+
+[node name="CircleTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Circles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Cubers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("11_7x8jb")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_5jvuw")
+volume_db = -5.0
+autoplay = true
+
+[connection signal="cuber" from="Player" to="." method="_on_player_cuber"]
+[connection signal="timeout" from="CircleTimer" to="." method="_on_circle_timer_timeout"]

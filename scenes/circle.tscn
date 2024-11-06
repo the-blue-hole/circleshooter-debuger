@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwgbq8fs7h76d"]
+
+[ext_resource type="Texture2D" uid="uid://xi504pjloi11" path="res://pngtree-black-ring-png-image_2319174.png" id="1_1y6xv"]
+[ext_resource type="Script" path="res://scenes/circle.gd" id="1_8757o"]
+[ext_resource type="AudioStream" uid="uid://uruwg0qlrqrg" path="res://scenes/retro-explode-3-236682.mp3" id="3_o66fq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojgey"]
+radius = 37.0135
+
+[node name="Circle" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_8757o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.25, 0.247222)
+texture = ExtResource("1_1y6xv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_ojgey")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o66fq")
+volume_db = 2.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b84sa0r0noox4"]
+
+[ext_resource type="Texture2D" uid="uid://c2056g8vxqry1" path="res://Screenshot_2024-09-18_071907-removebg-preview.png" id="1_2tc8x"]
+[ext_resource type="Script" path="res://scenes/cuber.gd" id="1_jcr6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofb6w"]
+size = Vector2(28, 27)
+
+[node name="Cuber" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_jcr6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(0.139381, 0.145238)
+texture = ExtResource("1_2tc8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ofb6w")

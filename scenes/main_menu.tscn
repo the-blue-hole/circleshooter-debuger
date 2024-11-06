@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://brvfmcrtf7k6n"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_2wukp"]
+[ext_resource type="FontFile" uid="uid://kjj6qqqdkd36" path="res://Karma Suture.otf" id="1_kfxw5"]
+[ext_resource type="Texture2D" uid="uid://wv7wrhyadhbd" path="res://2206_w019_n001_601a_p30_601.jpg" id="2_0pv04"]
+[ext_resource type="FontFile" uid="uid://cq54jpq4eqsmk" path="res://Karma Future.otf" id="3_47g4b"]
+[ext_resource type="AudioStream" uid="uid://b8a7siqtwkvgn" path="res://chiptune-grooving-142242.mp3" id="5_j8cbn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6bpme"]
+texture = ExtResource("2_0pv04")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0wxb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaxgq"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxip"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toapl"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2wukp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6bpme")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -86.0
+offset_right = 125.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_kfxw5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g0wxb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qaxgq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efxip")
+theme_override_styles/normal = SubResource("StyleBoxFlat_toapl")
+text = "start game"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_kfxw5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g0wxb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qaxgq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efxip")
+theme_override_styles/normal = SubResource("StyleBoxFlat_toapl")
+text = "setting"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_kfxw5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g0wxb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qaxgq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efxip")
+theme_override_styles/normal = SubResource("StyleBoxFlat_toapl")
+text = "exit"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -313.0
+offset_top = 26.0
+offset_right = 320.0
+offset_bottom = 158.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_47g4b")
+theme_override_font_sizes/font_size = 84
+text = "circle shooter"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_j8cbn")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3wahl2f00lmv"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_d6sb3"]
+[ext_resource type="FontFile" uid="uid://b31drqqopbc7v" path="res://kongtext.ttf" id="1_pywa5"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_d6sb3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 180.0
+offset_bottom = 51.0
+theme_override_constants/margin_top = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pywa5")
+theme_override_font_sizes/font_size = 45
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -66.0
+offset_right = 250.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
