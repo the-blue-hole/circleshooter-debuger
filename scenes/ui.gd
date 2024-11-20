@@ -6,7 +6,7 @@ var time_elapsed := 0
 func set_health(amount):
 	#remove
 	for child in $MarginContainer2/HBoxContainer.get_children():
-		child.queue_free()	
+		child.queue_free()
 
 	#create
 	for i in amount:
@@ -21,3 +21,4 @@ func _on_score_timer_timeout():
 	time_elapsed += 1
 	$MarginContainer/Label.text = str(time_elapsed)
 	Global.score = time_elapsed
+	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwgbq8fs7h76d"]
 
-[ext_resource type="Texture2D" uid="uid://xi504pjloi11" path="res://pngtree-black-ring-png-image_2319174.png" id="1_1y6xv"]
 [ext_resource type="Script" path="res://scenes/circle.gd" id="1_8757o"]
+[ext_resource type="Texture2D" uid="uid://dii4aofagh4e3" path="res://circle 1.svg" id="2_5e06d"]
 [ext_resource type="AudioStream" uid="uid://uruwg0qlrqrg" path="res://scenes/retro-explode-3-236682.mp3" id="3_o66fq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ojgey"]
@@ -15,8 +15,9 @@ script = ExtResource("1_8757o")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.25, 0.247222)
-texture = ExtResource("1_1y6xv")
+position = Vector2(0.500001, -2)
+scale = Vector2(1.58696, 1.6)
+texture = ExtResource("2_5e06d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
