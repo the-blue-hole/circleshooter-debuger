@@ -26,6 +26,8 @@ Global="*res://global/global.gd"
 
 window/size/viewport_width=1280
 window/size/mode=3
+mouse_cursor/custom_image="res://cube 2.svg"
+mouse_cursor/tooltip_position_offset=Vector2(5, 5)
 
 [input]
 
